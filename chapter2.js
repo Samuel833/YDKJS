@@ -109,3 +109,78 @@ console.log( typeof(foo));
 console.log( typeof(foo.bar));
 console.log( typeof(foo()));
 //Again, functions are a subtype of objects—typeof returns "function", which implies that a function is a main type—and can thus have properties, but you typically will only use function object properties (like foo.bar) in limited cases.
+
+//BUILT IN TYPE METHODS
+
+//The built-in types and subtypes we’ve just discussed have behaviors exposed as properties and methods that are quite powerful and useful.
+let c = "This is New";
+let p = 3.14519;
+
+console.log(c.length);
+console.log(c.toUpperCase());
+console.log(p.toFixed(3)); 
+
+//A string value can be wrapped by a String object, a number can be wrapped by a Number object, and a boolean can be wrapped by a Boolean object. For the most part, you don’t need to worry about or directly use these object wrapper forms of the values—prefer the primitive value forms in practically all cases and JavaScript will take care of the rest for you.
+
+//Using Primitive Values
+// Primitive values
+let myString = "apple";  // a string
+let myNumber = 5;        // a number
+let isTrue = true;       // a boolean
+
+// You can use them directly without wrappers
+console.log(myString);   // Output: apple
+console.log(myNumber);   // Output: 5
+console.log(isTrue);     // Output: true
+
+//Object wrapper forms
+let stringObject = new String("banana");  // a String object
+let numberObject = new Number(10);         // a Number object
+let booleanObject = new Boolean(false);   // a Boolean object
+
+// You can still use them, but it's a bit more complicated
+console.log(stringObject.valueOf());  // Output: banana
+console.log(numberObject.valueOf());  // Output: 10
+console.log(booleanObject.valueOf()); // Output: false
+
+console.log(stringObject);
+console.log(numberObject);
+console.log(booleanObject);
+
+//COMPARING VALUES
+//Two main types of values comaprisom: The equality and inequality 
+//The result of any comparison is a strictly boolean value (true or false), regardless of what value types are compared.
+
+//COERCION
+//Comes in 2 forms : The explicit and implicit coercion
+//Explicit coercion is simply that you can see from the code that a conversion from one type to another will occur
+let d = "42"
+e = Number(d);
+console.log(d); //"42"
+console.log(e); //42-- the number
+//Implicit coercion is when the type conversion can happen as more of a nonobvious side effect of some other operation
+let f = "54";
+let b = f * 1; // "54" implicitly coerced to 54 here
+console.log(f); // "54"
+console.log(b); // 54---the number
+
+// TRUTHY & FALSY
+// What happens when a non-boolean value is coerced to a boolean?
+// The specific list of FALSY values in JS
+/*
+• "" (empty string)
+• 0, -0, NaN (not a number / invalid number)
+• null, undefined
+• false
+*/
+
+//Values not here are on the falsy list is truthy
+//Examples
+/*
+• "hello"
+• 42
+• true
+• [ ], [ 1, "2", 3 ] (arrays)
+• { }, { a: 42 } (objects)
+• function foo() { .. } (functions)
+*/
