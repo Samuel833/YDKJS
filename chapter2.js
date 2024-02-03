@@ -184,3 +184,52 @@ console.log(b); // 54---the number
 • { }, { a: 42 } (objects)
 • function foo() { .. } (functions)
 */
+
+//EQUALITY
+//Four equality operators
+//==, ===, !=, !==..! denoting not equal
+//The difference between == and === is ofen characterised as beign == checks for only value equality while === checks for both value and type equality but in reality the == checks for value equality while allowing coercion and the === checks for value equality without allowing coercion, reason why it is called the strict equality
+//implicit coercion allowed by the == loose equality comparison and not allowed by === the strict equality comparison
+let g = "59";
+let h = 59;
+
+console.log(g == h); // true
+console.log(g === h); // false
+// When to use == or === 
+//• If either value (aka side) in a comparison could be the true or false value, avoid == and use ===.
+//• If either value in a comparison could be of these specific values(0, "", or []—empty array), avoid == and use ===.
+//• In all other cases, you’re safe to use ==. Not only is it safe, but in many cases it simplifies your code in a way that improves readability.
+
+//In non-primitive values like objects(including arrays and objects) both == and === will only check if the references match not anything about the underlying values because those values are actually held by reference
+
+//E.g Arrays are by default coerced into strings seperated by commas , in btw one wouldnthink two arrays should be equal == but it is not.
+
+let i = [1,2,3,4];
+let j = [1,2,3,4];
+let k = "1,2,3,4";
+console.log(i);
+console.log(i == j); // false
+console.log(j === i); // false
+console.log(j === k); // false
+console.log(k === i); // false
+console.log(i == k); // true
+console.log(k == i); //true
+
+//INEQUALITY
+// The <, >, <= and >= operators 
+// Used in comparing numbers
+// Also used for comparing strings inequality
+console.log(`is "u" > "t"? ${"u" > "t"}`);
+console.log(`is "bro" < "foo"? ${"bro" < "foo"}`);
+let l = 42;
+var m = "foo";
+//Here they all returned  a value of false because when Js was trying to coerce the b value into a number and got a NaN(Not a number) Which is neither greater than or less than any other value
+//The same thing applies for the equaity in the l === m as Js failed to coerce the value to be equal
+console.log(l < m); // false
+console.log(l > m); // false
+console.log(l == m); // false
+
+//VARIABLES
+// variable names must be valid identifier
+// Must start with either an alphabet or $, _ symbol
+//MUst not be any of the reserved JS keywords
