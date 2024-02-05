@@ -233,3 +233,7 @@ console.log(l == m); // false
 // variable names must be valid identifier
 // Must start with either an alphabet or $, _ symbol
 //MUst not be any of the reserved JS keywords
+
+Math.a
+// FUNCTION SCOPES
+// Variables declared within a function are only available to that function
